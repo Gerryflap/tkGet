@@ -4,12 +4,12 @@ import time
 import _thread
 
 MAX_Y = float(1500)
-SERVER_ADDR = "http://192.168.178.1"
 
 class App(tkinter.Frame):
     def __init__(self, maxTimes, master = None):
         tkinter.Frame.__init__(self, master)
         self.pack()
+        self.addr = input("url: ")
         self.title = "Lagfeest"
         self.times = []
         self.maxTimes = maxTimes
@@ -58,7 +58,7 @@ class App(tkinter.Frame):
         while True:
             t = time.time()
             try:
-                urllib.request.urlopen(SERVER_ADDR)
+                urllib.request.urlopen(self.addr)
             except:
                 pass
             t = (time.time() - t)*1000
